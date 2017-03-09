@@ -1,3 +1,6 @@
+h1{font-size:130%}
+h2{font-size:120%}
+h3{font-size:110%;padding:10px;background:#000;color:#fff;font-weight:bold;}
 header{
   width:100%;
   padding:70px 0;
@@ -15,29 +18,27 @@ header span{
   color:#fff;
   font-size:100% !important;
 }
+header a.title,header a.title:visited{text-decoration: none;color:#fff}
 
-form.url_input input{width:80%;}
+form.url_input input#url{width:300px;}
+form.url_input input.generate{}
 
 .flex-container{
   display:flex;
   justify-content: space-around;
 }
-div#left_column,div#right-column{
-  width:20%;
-}
-div#center-column{
-  width:60%;
-}
+
 
 /*人気のページ*/
 div#popular{
   display:flex;
+  -webkit-flex-wrap: wrap; /* Safari */
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 #popular .card{
   position:relative;
-  width:47%;
+  width:300px;
   height:150px;
   border:2px solid #000;
   margin:1%;
