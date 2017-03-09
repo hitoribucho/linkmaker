@@ -2,6 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ブロガーのためのリンクカード作成アプリです。">
+    <meta name="googlebot" content="index,follow">
+    <meta property="og:url" content="https://example.com/page.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="リンクメーカー">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo.jpg') }}">
+    <meta property="og:description" content="ブロガーのためのリンクカード作成アプリです。">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='reset.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
     <title>リンクメーカー</title>
@@ -27,9 +35,8 @@
           </form>
           <div style="{{link_card}}" class="mb30"><a href="{{url}}" style="{{fit_link}}"><img src="{{img_src}}" alt="" style="{{img_style}}"><span style="{{title_style}}">{{title}}</span><hr style="{{hr_style}}"><span style="{{description_style}}">{{description}}</span></a></div>
           <div class="center">
-            ↓↓↓↓↓↓↓
           </div>
-          <h3>コードをコピーしてブログの好きな場所に貼り付け</h3>
+          <h3>↓↓↓↓コードをコピーしてブログの好きな場所に貼り付け↓↓↓↓</h3>
           <textarea class="w90">
             {{link_code}}
           </textarea>

@@ -122,7 +122,7 @@ def send_url():
 
         #データの読み書き
         Data=Database()
-        #Data.reset()
+        Data.reset()
         url_info = (url,img_src,title,description)
         Data.confirm(url_info)
         data_list = Data.order_desc("count",10)
@@ -138,7 +138,12 @@ def send_url():
         Data.close()
         return render_template('index.html', form=form,data_list=data_list)
 
+@app.route('/reset')
+def reset_db():
+    form = UrlForm()
+    return render_template('index.html',form=form)
+
 # アプリケーションの実行
 if __name__ == '__main__':
-    app.run()
-    #app.run(debug=True)
+    #app.run()
+    app.run(debug=True)
