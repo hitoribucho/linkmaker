@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='reset.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <title>リンクメーカー</title>
+  </head>
+  <body class="ma p10" style="background:#fff)">
+    <header>
+      <div>
+        リンクメーカー
+      </div>
+      <span class="description">
+        ブロガーのためのリンクカード作成アプリです。
+      </span>
+    </header>
+    <div class="flex-container">
+      <div id="center-column" class="">
+        <div>
+          <form action="{{ url_for('send_url') }}" method="post" class="url_input w70 mb30">
+            {{ form.csrf_token }}{{ form.url.label }}{{ form.url }}
+            {% for error in form.url.errors %}
+            <p role="alert">Error: {{ error }}</p>
+            {% endfor %}
+            <input type="submit" value="リンクを生成" class="ml50">
+          </form>
+          <h3>コードをコピーしてブログの好きな場所に貼り付け</h3>
+          <textarea class="w90">
+            {{link_code}}
+          </textarea>
+          <div style="{{link_card}}" class="mb30"><a href="{{url}}" style="{{fit_link}}"><img src="{{img_src}}" alt="" style="{{img_style}}"><span style="{{title_style}}">{{title}}</span><hr style="{{hr_style}}"><span style="{{description_style}}">{{description}}</span></a></div>
+        </div>
+          {% if data_list %}
+          <p>最近の人気ページ</p>
+          <div id="popular">
+            {% for data in data_list %}
+            <div class="card br5" style="background:url('{{data[1]}}') no-repeat;background-position:center;background-size:cover">
+              <a href="{{data[0]}}">
+              <span class="title">{{data[2]}}</span>
+              <span class="count">{{data[4]}}</span>
+              </a>
+            </div>
+            {% endfor %}
+          </div><!--popular-->
+          {% endif %}
+      </div>
+    </div><!--flex-container-->
+  </body>
+</html>
