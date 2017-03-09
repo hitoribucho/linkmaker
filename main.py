@@ -142,6 +142,9 @@ def send_url():
 @app.route('/reset')
 def reset_db():
     form = UrlForm()
+    Data=Database()
+    Data.reset()
+    Data.close()
     return render_template('index.html',form=form)
 
 # アプリケーションの実行
