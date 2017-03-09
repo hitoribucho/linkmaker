@@ -5,4 +5,4 @@ Flask-WTF==0.14.2
 WTForms==2.1
 lxml==3.7.2
 Jinja2==2.9.4
-
+gunicorn==19.7.0
