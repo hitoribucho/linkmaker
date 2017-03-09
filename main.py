@@ -95,7 +95,8 @@ def send_url():
         link_card = "width:100%;max-width:700px;height:100px;border:2px solid #000;border-radius:4px;overflow:hidden;padding:5px !important;background:#fff !important;"
         fit_link = "display:block;width:100%;height:100%;text-decoration:none;color:#000;"
         try:
-            img_src = soup.find("meta",{"property":"og:image"}).get("content")
+            img_url = soup.find("meta",{"property":"og:image"}).get("content")
+            img_src = urljoin(url, img_url)
         except:
             try:
                 img_url = soup.body.find("img").get("src")
