@@ -9,7 +9,7 @@
   <body class="ma p10" style="background:#fff)">
     <header>
       <div>
-        リンクメーカー
+        リンクメーカー(β版)
       </div>
       <span class="description">
         ブロガーのためのリンクカード作成アプリです。
@@ -25,11 +25,14 @@
             {% endfor %}
             <input type="submit" value="リンクを生成" class="ml50">
           </form>
+          <div style="{{link_card}}" class="mb30"><a href="{{url}}" style="{{fit_link}}"><img src="{{img_src}}" alt="" style="{{img_style}}"><span style="{{title_style}}">{{title}}</span><hr style="{{hr_style}}"><span style="{{description_style}}">{{description}}</span></a></div>
+          <div class="center">
+            ↓↓↓↓↓↓↓
+          </div>
           <h3>コードをコピーしてブログの好きな場所に貼り付け</h3>
           <textarea class="w90">
             {{link_code}}
           </textarea>
-          <div style="{{link_card}}" class="mb30"><a href="{{url}}" style="{{fit_link}}"><img src="{{img_src}}" alt="" style="{{img_style}}"><span style="{{title_style}}">{{title}}</span><hr style="{{hr_style}}"><span style="{{description_style}}">{{description}}</span></a></div>
         </div>
           {% if data_list %}
           <p>最近の人気ページ</p>
