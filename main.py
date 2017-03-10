@@ -147,6 +147,13 @@ def reset_db():
     Data.close()
     return render_template('index.html',form=form)
 
+@app.route('/download_db')
+def download_db():
+    form = UrlForm()
+    filename = os.path.join(app.root_path, "database.db")}
+    urllib.request.urlretrieve(filename,'buckup.db')
+    return render_template('index.html',form=form)
+
 # アプリケーションの実行
 if __name__ == '__main__':
     app.run()
